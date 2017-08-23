@@ -3,14 +3,8 @@
   {%- set id = container.container_name|d(name) %}
   {%- set required_containers = [] %}
 {{id}} image:
-  docker.pulled:
-  {%- if ':' in container.image %}
-    {%- set image = container.image.split(':',1) %}
-    - name: {{image[0]}}
-    - tag: {{image[1]}}
-  {%- else %}
+  dockerng.image_present:
     - name: {{container.image}}
-  {%- endif %}
 
 {{id}} container:
   {%- if 'dvc' in container and container.dvc %}
