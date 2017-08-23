@@ -73,7 +73,7 @@
     {%- endif %}
   {%- endif %}
     - require:
-      - docker: {{id}} image
+      - docker_image: {{id}} image
   {%- if required_containers is defined %}
     {%- for containerid in required_containers %}
       - docker: {{containerid}}
