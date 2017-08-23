@@ -13,7 +13,7 @@
   {%- if 'dvc' in container and container.dvc %}
   docker.installed:
   {%- else %}
-  docker.running:
+  docker_container.running:
   {%- endif %}
     - name: {{id}}
     - image: {{container.image}}
