@@ -3,8 +3,11 @@
   {%- set id = container.container_name|d(name) %}
   {%- set required_containers = [] %}
 {{id}} image:
-  dockerng.image_present:
+  docker_image.present:
     - name: {{container.image}}
+    {%- if container.image.endswith(":latest") %}
+    - force: True
+    {% endif -%}
 
 {{id}} container:
   {%- if 'dvc' in container and container.dvc %}
