@@ -7,7 +7,7 @@
     - name: {{container.image}}
     {%- if container.image.endswith(":latest") %}
     - force: True
-    {% endif -%}
+    {% endif %}
 
 {{id}} container:
   {%- if 'dvc' in container and container.dvc %}
